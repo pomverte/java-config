@@ -1,0 +1,20 @@
+= JavaConfig with Spring 4.3 and Lombok
+
+[source, java]
+----
+@Slf4j
+@AllArgsConstructor <2>
+@Component <1>
+class Printer implements CommandLineRunner {
+
+    private final TotoBean totoBean; <3>
+
+    @Override
+    public void run(String... strings) throws Exception {
+        log.info(this.totoBean.toString());
+    }
+}
+----
+<1> Marked as Spring Bean
+<2> all arguments contructor generated
+<3> Initialized through implicit constructor injection
